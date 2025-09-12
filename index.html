@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+ <title>ناديه صالح</title>
+ <!-- CSS files -->
+ <link rel="stylesheet" href="css/style.css">
+ <!-- Google Font (Cairo) -->
+ <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+ <div class="wrap" role="main">
+  <header>
+   <div class="title">
+    <h1>صدقة جارية — في ذِكر أختي</h1>
+    <h1>ناديه صالح</h1>
+   </div>
+  </header>
+
+  <section class="grid" aria-live="polite">
+   <div class="card">
+    <div class="phrase">الله أكبر</div>
+    <div class="circle-btn" role="button" tabindex="0" data-key="takbir">
+     <div class="count" id="takbir-count">0</div>
+     <div class="pulse" id="takbir-pulse"
+      style="background: radial-gradient(circle at 30% 30%, rgba(255, 209, 102,0.2), rgba(255,209,102,0.05));"></div>
+    </div>
+    <div class="controls">
+     <button class="btn-small" data-reset="takbir">إعادة</button>
+    </div>
+   </div>
+
+   <div class="card">
+    <div class="phrase">سبحان الله</div>
+    <div class="circle-btn" role="button" tabindex="0" data-key="subhan">
+     <div class="count" id="subhan-count">0</div>
+     <div class="pulse" id="subhan-pulse"
+      style="background: radial-gradient(circle at 30% 30%, rgba(102, 204, 255,0.12), rgba(102,204,255,0.03));"></div>
+    </div>
+    <div class="controls">
+     <button class="btn-small" data-reset="subhan">إعادة</button>
+    </div>
+   </div>
+
+   <div class="card">
+    <div class="phrase">الحمد لله</div>
+    <div class="circle-btn" role="button" tabindex="0" data-key="hamd">
+     <div class="count" id="hamd-count">0</div>
+     <div class="pulse" id="hamd-pulse"
+      style="background: radial-gradient(circle at 30% 30%, rgba(170, 255, 195,0.14), rgba(170,255,195,0.03));"></div>
+    </div>
+    <div class="controls">
+     <button class="btn-small" data-reset="hamd">إعادة</button>
+    </div>
+   </div>
+  </section>
+
+  <footer>
+   اللهم اغفر لناديه صالح ولجميع أموات المسلمين وارحمهم برحمتك الواسعة.
+  </footer>
+
+
+
+  <!-- Modal for reset confirmation -->
+  <div class="modal" id="reset-modal" role="dialog" aria-hidden="true">
+   <div class="modal-content">
+    <p class="modal-text">هل تريد إعادة تعيين العداد لـ "<span id="modal-key-label"></span>" إلى صفر؟</p>
+    <div class="modal-buttons">
+     <button class="btn-small modal-confirm" id="modal-confirm">تأكيد</button>
+     <button class="btn-small modal-cancel" id="modal-cancel">إلغاء</button>
+    </div>
+   </div>
+  </div>
+ </div>
+
+ <script src="js/main.js"></script>
+</body>
+
+</html>
