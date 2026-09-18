@@ -2,81 +2,356 @@
 <html lang="ar" dir="rtl">
 
 <head>
- <meta charset="utf-8" />
- <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
- <title>ناديه صالح</title>
- <!-- CSS files -->
- <link rel="stylesheet" href="css/style.css">
- <!-- Google Font (Cairo) -->
- <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <meta name="theme-color" content="#05140f" />
+  <meta name="description" content="صدقة جارية في ذكرى أختي ناديه صالح رحمها الله — موسوعة الأذكار، السبحة الذكية، وأدعية المتوفاة" />
+  
+  <title>صدقة جارية — ناديه صالح رحمها الله</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@400;500;600;700;800&family=Reem+Kufi:wght@500;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css?v=3.0">
+
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
 </head>
 
 <body>
- <div class="wrap" role="main">
-  <header>
-   <div class="title">
-    <h1>صدقة جارية — في ذِكر أختي</h1>
-    <h1>ناديه صالح</h1>
-   </div>
-  </header>
+  <!-- Islamic Geometric Pattern Background -->
+  <div class="bg-pattern" aria-hidden="true"></div>
 
-  <section class="grid" aria-live="polite">
-   <div class="card">
-    <div class="phrase">الله أكبر</div>
-    <div class="circle-btn" role="button" tabindex="0" data-key="takbir">
-     <div class="count" id="takbir-count">0</div>
-     <div class="pulse" id="takbir-pulse"
-      style="background: radial-gradient(circle at 30% 30%, rgba(255, 209, 102,0.2), rgba(255,209,102,0.05));"></div>
-    </div>
-    <div class="controls">
-     <button class="btn-small" data-reset="takbir">إعادة</button>
-    </div>
-   </div>
+  <!-- Main Application Container -->
+  <div class="app-container" role="main">
+    
+    <!-- Top Navigation Bar (أول عنصر في أعلى الصفحة) -->
+    <nav class="top-nav-bar" aria-label="التنقل الرئيسي">
+      <button class="nav-item active" data-target="section-tasbeeh">
+        <span class="nav-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="9"></circle>
+            <circle cx="12" cy="6" r="1.5" fill="currentColor"></circle>
+            <circle cx="17" cy="9" r="1.5" fill="currentColor"></circle>
+            <circle cx="17" cy="15" r="1.5" fill="currentColor"></circle>
+            <circle cx="12" cy="18" r="1.5" fill="currentColor"></circle>
+            <circle cx="7" cy="15" r="1.5" fill="currentColor"></circle>
+            <circle cx="7" cy="9" r="1.5" fill="currentColor"></circle>
+          </svg>
+        </span>
+        <span class="nav-label">السبحة</span>
+      </button>
+      <button class="nav-item" data-target="section-azkar">
+        <span class="nav-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+            <line x1="8" y1="7" x2="16" y2="7"></line>
+            <line x1="8" y1="11" x2="14" y2="11"></line>
+          </svg>
+        </span>
+        <span class="nav-label">الأذكار</span>
+      </button>
+      <button class="nav-item" data-target="section-nadia">
+        <span class="nav-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+          </svg>
+        </span>
+        <span class="nav-label">أختي ناديه</span>
+      </button>
+      <button class="nav-item" data-target="section-duas">
+        <span class="nav-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+          </svg>
+        </span>
+        <span class="nav-label">أدعية</span>
+      </button>
+      <button class="nav-item" data-target="section-quran">
+        <span class="nav-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+          </svg>
+        </span>
+        <span class="nav-label">القرآن</span>
+      </button>
+    </nav>
 
-   <div class="card">
-    <div class="phrase">سبحان الله</div>
-    <div class="circle-btn" role="button" tabindex="0" data-key="subhan">
-     <div class="count" id="subhan-count">0</div>
-     <div class="pulse" id="subhan-pulse"
-      style="background: radial-gradient(circle at 30% 30%, rgba(102, 204, 255,0.12), rgba(102,204,255,0.03));"></div>
-    </div>
-    <div class="controls">
-     <button class="btn-small" data-reset="subhan">إعادة</button>
-    </div>
-   </div>
+    <!-- Site Header & Memorial Dedication -->
+    <header class="site-header">
+      <div class="header-top-bar">
+        <div class="charity-badge">
+          <span class="pulse-dot"></span>
+          <span>صدقة جارية</span>
+        </div>
+        <div class="header-quick-actions">
+          <button class="icon-btn" id="sound-toggle-btn" title="كتم / تشغيل أصوات التسبيح" aria-label="الصوت">
+            <svg id="sound-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+              <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+              <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+            </svg>
+          </button>
+          <button class="icon-btn" id="theme-toggle-btn" title="الوضع الليلي / النهاري" aria-label="المظهر">
+            <svg id="theme-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </button>
+          <button class="icon-btn" id="share-site-btn" title="مشاركة الموقع كصدقة جارية" aria-label="مشاركة">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="18" cy="5" r="3"></circle>
+              <circle cx="6" cy="12" r="3"></circle>
+              <circle cx="18" cy="19" r="3"></circle>
+              <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+              <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
 
-   <div class="card">
-    <div class="phrase">الحمد لله</div>
-    <div class="circle-btn" role="button" tabindex="0" data-key="hamd">
-     <div class="count" id="hamd-count">0</div>
-     <div class="pulse" id="hamd-pulse"
-      style="background: radial-gradient(circle at 30% 30%, rgba(170, 255, 195,0.14), rgba(170,255,195,0.03));"></div>
-    </div>
-    <div class="controls">
-     <button class="btn-small" data-reset="hamd">إعادة</button>
-    </div>
-   </div>
-  </section>
+      <div class="memorial-title-wrap">
+        <h1 class="main-title">ناديه صالح</h1>
+        <p class="subtitle">رحمها الله وغفر لها وجعل مثواها الجنة</p>
+      </div>
 
-  <footer>
-   اللهم اغفر لناديه صالح ولجميع أموات المسلمين وارحمهم برحمتك الواسعة.
-  </footer>
+      <p class="prayer-dedication">
+        اللهم اجعل كل تسبيحة وذكر ودعاء في هذا الموقع نوراً وضياءً ورحمة ومغفرة لروح أختنا الغالية ناديه صالح، ولجميع أموات المسلمين.
+      </p>
 
+      <div class="install-banner-wrap">
+        <button class="install-app-btn" id="install-app-btn" title="تثبيت الموقع كتطبيق على شاشة هاتفك">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          <span>تثبيت التطبيق على الموبايل</span>
+        </button>
+      </div>
+    </header>
 
+    <!-- Daily Inspiration / Hadith Quote Banner -->
+    <section class="inspiration-card" aria-label="وقفة وتذكرة">
+      <div class="inspiration-content">
+        <p class="inspiration-text" id="quote-text">جارٍ التحميل...</p>
+        <span class="inspiration-source" id="quote-source"></span>
+      </div>
+      <button class="inspiration-refresh" id="refresh-quote-btn" title="تحديث" aria-label="تحديث">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="23 4 23 10 17 10"></polyline>
+          <polyline points="1 20 1 14 7 14"></polyline>
+          <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+        </svg>
+      </button>
+    </section>
 
-  <!-- Modal for reset confirmation -->
-  <div class="modal" id="reset-modal" role="dialog" aria-hidden="true">
-   <div class="modal-content">
-    <p class="modal-text">هل تريد إعادة تعيين العداد لـ "<span id="modal-key-label"></span>" إلى صفر؟</p>
-    <div class="modal-buttons">
-     <button class="btn-small modal-confirm" id="modal-confirm">تأكيد</button>
-     <button class="btn-small modal-cancel" id="modal-cancel">إلغاء</button>
-    </div>
-   </div>
+    <!-- ==========================================================
+         SECTION 1: SMART TASBEEH (السبحة الإلكترونية)
+         ========================================================== -->
+    <section class="view-section active" id="section-tasbeeh" aria-label="السبحة الإلكترونية">
+      <div class="section-header-row">
+        <h2 class="section-title">السبحة الإلكترونية</h2>
+        <button class="btn-secondary" id="tasbeeh-reset-trigger">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2.5 2v6h6M21.5 22v-6h-6"></path>
+            <path d="M22 11.5A10 10 0 0 0 3.2 7.2M2 12.5a10 10 0 0 0 18.8 4.2"></path>
+          </svg>
+          <span>تصفير</span>
+        </button>
+      </div>
+
+      <div class="tasbeeh-container">
+        <!-- Preset Dhikr Chips -->
+        <div class="tasbeeh-presets-scroll" id="tasbeeh-presets-container" role="tablist">
+          <!-- Populated by main.js -->
+        </div>
+
+        <!-- Target Count Selector -->
+        <div class="tasbeeh-mode-bar" role="group" aria-label="تحديد عدد التسبيحات">
+          <button class="mode-btn active" data-target="33">33 مرة</button>
+          <button class="mode-btn" data-target="100">100 مرة</button>
+          <button class="mode-btn" data-target="0">تسبيح حر</button>
+        </div>
+
+        <!-- Active Dhikr Label & Virtue -->
+        <div class="active-phrase-card">
+          <h3 class="active-phrase-text" id="active-phrase-text">سُبْحَانَ اللَّهِ</h3>
+          <p class="active-phrase-virtue" id="active-phrase-virtue">تُغرس له بها نخلة في الجنة</p>
+        </div>
+
+        <!-- Interactive Circle Button with SVG Progress Ring -->
+        <div class="tasbeeh-circle-wrap" id="tasbeeh-btn" role="button" tabindex="0" aria-label="اضغط للتسبيح">
+          <svg class="tasbeeh-progress-svg" viewBox="0 0 120 120">
+            <defs>
+              <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#dfb15b" />
+                <stop offset="100%" stop-color="#f7df9a" />
+              </linearGradient>
+            </defs>
+            <circle class="progress-track" cx="60" cy="60" r="54" />
+            <circle class="progress-bar" id="tasbeeh-progress-bar" cx="60" cy="60" r="54" 
+                    stroke-dasharray="339.292" stroke-dashoffset="339.292" />
+          </svg>
+
+          <div class="tasbeeh-press-btn">
+            <span class="tasbeeh-main-count" id="tasbeeh-count">0</span>
+            <span class="tasbeeh-target-hint" id="tasbeeh-target-hint">الهدف: 33</span>
+            <span class="tasbeeh-tap-caption">المس هنا للتسبيح</span>
+          </div>
+        </div>
+
+        <!-- Dedicate Deed to Nadia Button -->
+        <button class="dedicate-deed-btn" id="dedicate-deed-btn">
+          <span>إهداء ثواب هذا التسبيح لروح ناديه صالح</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         SECTION 2: AZKAR ENCYCLOPEDIA (موسوعة الأذكار)
+         ========================================================== -->
+    <section class="view-section" id="section-azkar" aria-label="موسوعة الأذكار">
+      <div class="section-header-row">
+        <h2 class="section-title">الأذكار اليومية</h2>
+      </div>
+
+      <!-- Sub Tabs: Morning, Evening, Post-Prayer -->
+      <div class="azkar-category-tabs" role="tablist">
+        <button class="azkar-tab-btn active" data-category="morning" role="tab">أذكار الصباح</button>
+        <button class="azkar-tab-btn" data-category="evening" role="tab">أذكار المساء</button>
+        <button class="azkar-tab-btn" data-category="post_prayer" role="tab">بعد الصلاة</button>
+      </div>
+
+      <!-- Category Progress Banner -->
+      <div class="category-progress-banner">
+        <div class="progress-banner-text">
+          <span>نسبة إنجاز الأذكار:</span>
+          <span id="azkar-progress-text">0 من 10</span>
+        </div>
+        <div class="progress-banner-bar">
+          <div class="progress-banner-fill" id="azkar-progress-fill"></div>
+        </div>
+      </div>
+
+      <!-- Cards Container -->
+      <div class="cards-list" id="azkar-cards-container">
+        <!-- Rendered dynamically by main.js -->
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         SECTION 3: DUAS FOR NADIA (أدعية لأختي ناديه)
+         ========================================================== -->
+    <section class="view-section" id="section-nadia" aria-label="أدعية لأختي ناديه">
+      <div class="memorial-hero-card">
+        <h2 class="hero-deceased-name">أدعية لأختنا ناديه صالح رحمها الله</h2>
+        <p class="hero-deceased-desc">
+          نسألكم خالص الدعاء لها بالمغفرة والرحمة الواسعة وأن يجعل الله قبرها روضة من رياض الجنة.
+        </p>
+      </div>
+
+      <div class="cards-list" id="nadia-duas-container">
+        <!-- Rendered dynamically by main.js -->
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         SECTION 4: GENERAL DUAS (أدعية مأثورة)
+         ========================================================== -->
+    <section class="view-section" id="section-duas" aria-label="أدعية مأثورة">
+      <div class="section-header-row">
+        <h2 class="section-title">أدعية قرآنية ونبوية جامعة</h2>
+      </div>
+
+      <div class="cards-list" id="general-duas-container">
+        <!-- Rendered dynamically by main.js -->
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         SECTION 5: QURAN SURAHS (سور القرآن الكريم)
+         ========================================================== -->
+    <section class="view-section" id="section-quran" aria-label="سور القرآن الكريم">
+      <div class="section-header-row">
+        <h2 class="section-title">سور القرآن الكريم</h2>
+      </div>
+
+      <!-- Main Audio Player Box -->
+      <div class="audio-player-card">
+        <div class="audio-now-playing">
+          <h3 class="audio-title" id="player-title">سورة يـس</h3>
+          <p class="audio-reciter" id="player-reciter">مشاري راشد العفاسي</p>
+        </div>
+
+        <!-- Equalizer Sound Wave -->
+        <div class="sound-wave-box" id="sound-wave-box">
+          <div class="wave-bar"></div>
+          <div class="wave-bar"></div>
+          <div class="wave-bar"></div>
+          <div class="wave-bar"></div>
+          <div class="wave-bar"></div>
+        </div>
+
+        <!-- Player Controls -->
+        <div class="audio-main-controls">
+          <button class="audio-play-btn" id="audio-main-play-btn" aria-label="تشغيل / إيقاف">
+            <svg id="player-play-icon" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Tracks Playlist -->
+      <div class="tracks-list" id="audio-tracks-container">
+        <!-- Rendered by main.js -->
+      </div>
+    </section>
+
   </div>
- </div>
 
- <script src="js/main.js"></script>
+  <!-- Native HTML5 Audio Element for Quran Surahs -->
+  <audio id="quran-audio-player" preload="none"></audio>
+
+  <!-- Reset Confirmation Modal -->
+  <div class="modal-overlay" id="reset-modal" role="dialog" aria-hidden="true">
+    <div class="modal-box">
+      <h3 class="modal-title">إعادة تعيين العداد</h3>
+      <p class="modal-text">هل ترغب في إعادة عداد التسبيح الحالي إلى الصفر؟</p>
+      <div class="modal-actions">
+        <button class="modal-confirm-btn" id="modal-confirm-btn">تأكيد التصفير</button>
+        <button class="modal-cancel-btn" id="modal-cancel-btn">إلغاء</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Install App Modal for iOS and Instructions -->
+  <div class="modal-overlay" id="install-modal" role="dialog" aria-hidden="true">
+    <div class="modal-box">
+      <h3 class="modal-title">تثبيت التطبيق على الموبايل</h3>
+      <div class="modal-text" style="text-align: right; line-height: 1.8;">
+        <p style="margin-bottom: 8px; color: var(--gold-light); font-weight: 700;">لهواتف الآيفون (Safari):</p>
+        <p style="font-size: 0.96rem; margin-bottom: 14px;">1. اضغط على زر <strong>المشاركة (Share)</strong> أسفل المتصفح.<br>2. اختر <strong>"إضافة إلى الشاشة الرئيسية" (Add to Home Screen)</strong>.<br>3. اضغط <strong>"إضافة" (Add)</strong>.</p>
+        <p style="margin-bottom: 8px; color: var(--gold-light); font-weight: 700;">لهواتف أندرويد (Chrome):</p>
+        <p style="font-size: 0.96rem;">اضغط على القائمة (⋮) ثم اختر <strong>"تثبيت التطبيق"</strong> أو <strong>"إضافة إلى الشاشة الرئيسية"</strong>.</p>
+      </div>
+      <div class="modal-actions" style="margin-top: 16px;">
+        <button class="modal-confirm-btn" id="install-modal-close">حسناً، فهمت</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Message -->
+  <div class="toast-msg" id="toast-msg" role="status" aria-live="polite">تم النسخ بنجاح</div>
+
+  <!-- Main JavaScript Application Module -->
+  <script type="module" src="js/main.js?v=3.0"></script>
 </body>
 
 </html>
